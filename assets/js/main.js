@@ -6,11 +6,14 @@
 //Get an element of the dom to show the numbers 
 
 const numbersList = document.getElementById("numbers");
+const submitEl = document.getElementById("submit"); 
+let correctNumbers = []
+
+
 
 //Take 5 random number with a function and save them in an array
 let randomNumbers = [];
-let userNumbers = []; 
-let correctNumbers = []; 
+let userNumbers = [];
 
 while (randomNumbers.length < 5) {
     let randomNumber = random_number_in_a_int_range(1, 1000);
@@ -30,35 +33,50 @@ console.log(randomNumbers);
 
 //Show the prompts with a setTiming function and save them in an array
 
-const promptsTimeout = setTimeout(showPrompts, 3050);
+const inputTimeout = setTimeout(showInput, 3050);
 
-const hideNumbersTimeout = setTimeout(hideNumbers, 3000)
+const hideNumbersTimeout = setTimeout(hideNumbers, 3000);
 
-function showPrompts() {
 
-    for (let i = 1; i < 6; i++) {
-        let userNumber = Number(prompt(`Insert the ${i} number`));
-        userNumbers.push(userNumber);
-        // compare the user's array with the random's array 
-        if (randomNumbers.includes(userNumber)){
-            correctNumbers.push(userNumber)
+function showInput() {
+
+    // for (let i = 1; i < 6; i++) {
+    //     let userNumber = Number(prompt(`Insert the ${i} number`));
+    //     userNumbers.push(userNumber);
+    //     // compare the user's array with the random's array 
+    //     
+    // }
+
+    // alert(`Correct numbers are: ${correctNumbers}. You guessed ${correctNumbers.length} numbers`)
+
+
+    // console.log(userNumbers);
+    let inputEl = document.querySelector(".user_input"); 
+    inputEl.classList.add("d-block")
+    submitEl.addEventListener("click",
+        function () {
+          
+            let userNumber = Number(document.querySelector("input").value);
+            userNumbers.push(userNumber);
+            document.querySelector("input").value = ""
+            console.log(userNumbers);
+            console.log(userNumber);
+            if (randomNumbers.includes(userNumber)) {
+                correctNumbers.push(userNumber);
+            }
+            if (userNumbers.length >= 5) {
+                console.log(correctNumbers);
+                console.log(`Your score: ${correctNumbers.length} `);
+            }
         }
-    }
-
-    alert(`Correct numbers are: ${correctNumbers}. You guessed ${correctNumbers.length} numbers`)
-
-
-    console.log(userNumbers);
-
+    )
 }
 
+
+//hide numbers 
 function hideNumbers() {
     numbersList.classList.add("d-none");
 }
-
-
-
-
 
 
 
