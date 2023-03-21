@@ -27,6 +27,20 @@ while (randomNumbers.length < 5) {
 console.log(randomNumbers);
 
 //Show the prompts with a setTiming function and save them in an array
+
+const promptsTimeout = setTimeout(showPrompts, 30000); 
+
+function showPrompts() {
+
+    for(let i = 1; i < 6; i++ ){
+        prompt(`Insert the ${i} number`)
+    }
+
+}
+
+
+
+
 // compare the user's array with the random's array 
 
 
