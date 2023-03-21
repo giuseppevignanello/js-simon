@@ -4,7 +4,9 @@
 
 
 //Get an element of the dom to show the numbers 
-
+const overlayEl = document.getElementById("overlay");
+const messageEl = document.getElementById("message"); 
+const playAgainBtn = document.querySelector(".play_again");
 const numbersList = document.getElementById("numbers");
 const submitEl = document.getElementById("submit"); 
 let correctNumbers = []
@@ -33,9 +35,9 @@ console.log(randomNumbers);
 
 //Show the prompts with a setTiming function and save them in an array
 
-const inputTimeout = setTimeout(showInput, 3050);
+const inputTimeout = setTimeout(showInput, 30500);
 
-const hideNumbersTimeout = setTimeout(hideNumbers, 3000);
+const hideNumbersTimeout = setTimeout(hideNumbers, 30000);
 
 
 function showInput() {
@@ -65,8 +67,11 @@ function showInput() {
                 correctNumbers.push(userNumber);
             }
             if (userNumbers.length >= 5) {
-                console.log(correctNumbers);
-                console.log(`Your score: ${correctNumbers.length} `);
+                document.createElement("div"); 
+                overlayEl.classList.add("d-block"); 
+                messageEl.innerText = `Correct numbers: ${correctNumbers}.         Your score: ${correctNumbers.length} `
+                // console.log(correctNumbers);
+                // console.log(`Your score: ${correctNumbers.length} `);
             }
         }
     )
@@ -88,3 +93,14 @@ function random_number_in_a_int_range(min, max) {
     return randomNumber
 
 }
+
+//play_again btn 
+
+playAgainBtn.addEventListener ("click", 
+
+function() {
+    window.location.reload(); 
+
+}
+)
+
