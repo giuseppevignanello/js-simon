@@ -9,6 +9,8 @@ const numbersList = document.getElementById("numbers");
 
 //Take 5 random number with a function and save them in an array
 let randomNumbers = [];
+let userNumbers = []; 
+let correctNumbers = []; 
 
 while (randomNumbers.length < 5) {
     let randomNumber = random_number_in_a_int_range(1, 1000);
@@ -28,26 +30,34 @@ console.log(randomNumbers);
 
 //Show the prompts with a setTiming function and save them in an array
 
-const promptsTimeout = setTimeout(showPrompts, 30500);
+const promptsTimeout = setTimeout(showPrompts, 3050);
 
-const hideNumbersTimeout = setTimeout(hideNumbers,30000)
+const hideNumbersTimeout = setTimeout(hideNumbers, 3000)
 
 function showPrompts() {
 
-   for (let i = 1; i < 6; i++) {
-      prompt(`Insert the ${i} number`)
-  }
+    for (let i = 1; i < 6; i++) {
+        let userNumber = Number(prompt(`Insert the ${i} number`));
+        userNumbers.push(userNumber);
+        // compare the user's array with the random's array 
+        if (randomNumbers.includes(userNumber)){
+            correctNumbers.push(userNumber)
+        }
+    }
+
+    alert(`Correct numbers are: ${correctNumbers}. You guessed ${correctNumbers.length} numbers`)
+
+
+    console.log(userNumbers);
 
 }
 
-function hideNumbers(){
-    numbersList.classList.add("d-none"); 
+function hideNumbers() {
+    numbersList.classList.add("d-none");
 }
 
 
 
-
-// compare the user's array with the random's array 
 
 
 
