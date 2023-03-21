@@ -4,6 +4,39 @@
 
 
 //Get an element of the dom to show the numbers 
+
+const numbersList = document.getElementById("numbers"); 
+
 //Take 5 random number with a function and save them in an array
+let randomNumbers = []; 
+
+while (randomNumbers.length < 5) {
+    let randomNumber = random_number_in_a_int_range(1, 1000); 
+    const randomNumberItem = document.createElement("li"); 
+    randomNumberItem.append(randomNumber)
+    numbersList.append(randomNumberItem)
+
+
+    if (!randomNumbers.includes(randomNumber)) {
+        randomNumbers.push(randomNumber)
+    }
+
+}
+
+
+console.log(randomNumbers);
+
 //Show the prompts with a setTiming function and save them in an array
 // compare the user's array with the random's array 
+
+
+
+
+
+// /random number function
+function random_number_in_a_int_range(min, max) {
+
+    randomNumber = Number(Math.ceil(Math.random() * (max - min + 1)));
+    return randomNumber
+
+}
