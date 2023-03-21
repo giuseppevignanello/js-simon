@@ -5,14 +5,14 @@
 
 //Get an element of the dom to show the numbers 
 
-const numbersList = document.getElementById("numbers"); 
+const numbersList = document.getElementById("numbers");
 
 //Take 5 random number with a function and save them in an array
-let randomNumbers = []; 
+let randomNumbers = [];
 
 while (randomNumbers.length < 5) {
-    let randomNumber = random_number_in_a_int_range(1, 1000); 
-    const randomNumberItem = document.createElement("li"); 
+    let randomNumber = random_number_in_a_int_range(1, 1000);
+    const randomNumberItem = document.createElement("li");
     randomNumberItem.append(randomNumber)
     numbersList.append(randomNumberItem)
 
@@ -28,14 +28,20 @@ console.log(randomNumbers);
 
 //Show the prompts with a setTiming function and save them in an array
 
-const promptsTimeout = setTimeout(showPrompts, 30000); 
+const promptsTimeout = setTimeout(showPrompts, 30500);
+
+const hideNumbersTimeout = setTimeout(hideNumbers,30000)
 
 function showPrompts() {
 
-    for(let i = 1; i < 6; i++ ){
-        prompt(`Insert the ${i} number`)
-    }
+   for (let i = 1; i < 6; i++) {
+      prompt(`Insert the ${i} number`)
+  }
 
+}
+
+function hideNumbers(){
+    numbersList.classList.add("d-none"); 
 }
 
 
