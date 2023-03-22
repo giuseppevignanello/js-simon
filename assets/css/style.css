@@ -3,9 +3,6 @@ ul {
     list-style: none;
 }
 
-.user_input {
-    display: none;
-}
 
 #overlay {
     position: fixed; 
@@ -41,4 +38,8 @@ ul {
     top: 60%;
     left: 50%; 
     transform: translate( -50%);
+}
+
+#numbers, .user_input, #countdown {
+    display: none; 
 }
