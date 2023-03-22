@@ -10,29 +10,18 @@ const playAgainBtn = document.querySelector(".play_again");
 const numbersList = document.getElementById("numbers");
 const submitEl = document.getElementById("submit");
 const playBtnEl = document.getElementById("play_button");
-const userInputEl = document.querySelector(".userInput"); 
+const userInputEl = document.querySelector(".userInput");
 const countdownEl = document.getElementById('countdown');
+const selectEl = document.querySelector("select")
 
 let correctNumbers = []
 
 
 
-//Take 5 random number with a function and save them in an array
 let randomNumbers = [];
 let userNumbers = [];
 
-while (randomNumbers.length < 5) {
-    let randomNumber = random_number_in_a_int_range(1, 1000);
-    const randomNumberItem = document.createElement("li");
-    randomNumberItem.append(randomNumber)
-    numbersList.append(randomNumberItem)
 
-
-    if (!randomNumbers.includes(randomNumber)) {
-        randomNumbers.push(randomNumber)
-    }
-
-}
 
 
 console.log(randomNumbers);
@@ -44,8 +33,30 @@ playBtnEl.addEventListener("click",
 
         //show numbers
 
-        numbersList.classList.add("d-block"); 
-        countdownEl.classList.add("d-block"); 
+        numbersList.classList.add("d-block");
+        countdownEl.classList.add("d-block");
+
+
+        let randomNumber = 0
+        //Take 5 random number with a function and save them in an array
+        while (randomNumbers.length < 5) {
+            if (selectEl.value == "easy") {
+                randomNumber = random_number_in_a_int_range(1, 100);
+            } else if (selectEl.value =="medium") {
+                randomNumber = random_number_in_a_int_range(1, 1000);
+            } else if (selectEl.value == "hard") {
+                randomNumber = random_number_in_a_int_range(1, 10000);
+            }
+            const randomNumberItem = document.createElement("li");
+            randomNumberItem.append(randomNumber)
+            numbersList.append(randomNumberItem)
+
+
+            if (!randomNumbers.includes(randomNumber)) {
+                randomNumbers.push(randomNumber)
+            }
+
+        }
 
 
         //timeout functions
@@ -56,7 +67,7 @@ playBtnEl.addEventListener("click",
 
 
         let timeLeft = 30;
-       
+
 
 
 
