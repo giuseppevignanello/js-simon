@@ -54,3 +54,7 @@ ul {
 #numbers, .user_input, #countdown {
     display: none; 
 }
+
+#countdown {
+    font-weight: bold;
+}

@@ -90,9 +90,11 @@ playBtnEl.addEventListener("click",
                         correctNumbers.push(userNumber);
                     }
                     if (userNumbers.length >= 5) {
-                        document.createElement("div");
                         overlayEl.classList.add("d-block");
-                        messageEl.innerText = `Correct numbers: ${correctNumbers}.         Your score: ${correctNumbers.length} `
+                        overlayEl.innerHTML = `<div id="message" class="text-white bg-primary"> 
+                        Correct Numbers: ${correctNumbers} <br>
+                        Your Score: ${correctNumbers.length}
+                    </div> `
                     }
                 }
             )
