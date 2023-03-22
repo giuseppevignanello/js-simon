@@ -35,9 +35,24 @@ console.log(randomNumbers);
 
 //Show the prompts with a setTiming function and save them in an array
 
-const inputTimeout = setTimeout(showInput, 30500);
+const inputTimeout = setTimeout(showInput, 30000);
 
 const hideNumbersTimeout = setTimeout(hideNumbers, 30000);
+
+
+let timeLeft = 30;
+const countdownEl = document.getElementById('countdown');
+
+const countdownInterval = setInterval(countdown, 1000);
+
+function countdown() {
+  if (timeLeft == 0) {
+    clearTimeout(countdownInterval);
+  } else {
+    countdownEl.innerHTML = timeLeft + ' seconds remaining';
+    timeLeft--;
+  }
+}
 
 
 function showInput() {
