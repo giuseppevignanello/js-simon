@@ -64,7 +64,7 @@ playBtnEl.addEventListener("click",
         const countdownInterval = setInterval(countdown, 1000);
 
         function countdown() {
-            if (timeLeft == 0) {
+            if (timeLeft == -1) {
                 clearTimeout(countdownInterval);
             } else {
                 countdownEl.innerHTML = timeLeft + ' seconds remaining';
